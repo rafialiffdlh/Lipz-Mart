@@ -1,0 +1,41 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "User Test",
+        "phone_number": "0813456789",
+        "email": "test123@mail.com",
+        "password": "$2b$10$.ghPwWl3.0q2M8l6p2rgReaxYiSHo3GdBGCYSyyaDrD3WhVBamEH.",
+        "role": "user",
+        "isVerified": true
+      },
+      {
+        "id": 2,
+        "name": "Tenant Test",
+        "phone_number": "0819299001133",
+        "email": "test12345@gmail.com",
+        "password": "$2b$10$.ghPwWl3.0q2M8l6p2rgReaxYiSHo3GdBGCYSyyaDrD3WhVBamEH.",
+        "role": "tenant",
+        "isVerified": true
+      }
+    ],
+    "categories": [
+      { "id": 1, "name": "Makanan" },
+      { "id": 2, "name": "Minuman" },
+      { "id": 3, "name": "Buah" },
+      { "id": 4, "name": "Sayur" }
+    ],
+    "products": [
+        { "id": 1,"category_id": 1, "name": "Makanan", "description": "ini makanan","price": 1000 },
+        { "id": 2,"category_id": 2, "name": "Minuman","description": "ini makanan","price": 1000 },
+        { "id": 3,"category_id": 3, "name": "Buah", "description": "ini makanan","price": 1000 },
+        { "id": 4,"category_id": 4, "name": "Sayur", "description": "ini makanan","price": 1000 }
+      ],
+    "productStock": [
+        { "id": 1, "product_id":1, "stock": 5 },
+        { "id": 2, "product_id":2, "stock": 5 },
+        { "id": 3, "product_id":3, "stock": 5 },
+        { "id": 4, "product_id":4,"stock": 5 }
+      ]
+  }
+  
