@@ -1,5 +1,5 @@
-export const responseHandler = (
-  message: any,
+export const responseHandle = (
+  message: string,
   data: any,
   success: boolean = true,
 ) => {

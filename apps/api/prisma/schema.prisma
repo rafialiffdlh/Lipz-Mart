@@ -15,6 +15,10 @@ model User {
   name      String   @db.VarChar(255)
   email     String   @unique @db.VarChar(255)
   password  String   @db.VarChar(255)
+  isVerified            Boolean    @default(false)
+  role  users_role
+  phone_number String @unique @db.VarChar(255)
+  image String? @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -49,4 +53,10 @@ model Product {
   stock       ProductStock[]
 
   @@map("products")
+}
+
+
+enum users_role {
+  user
+  admin
 }

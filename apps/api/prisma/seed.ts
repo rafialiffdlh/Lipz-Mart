@@ -1,12 +1,31 @@
 import prisma from '../src/prisma';
+import { users_role } from '@prisma/client';
 import { categories, products, users, productStock } from './seed.json';
-const seedUsers = async () => {
+const seedUser = async () => {
   await prisma.$transaction(async (trx) => {
-    for (const user of users) {
+    for (let i = 0; i < users.length; i++) {
       await trx.user.upsert({
-        where: { email: user.email },
-        create: user,
-        update: user,
+        where: {
+          id: users[i].id,
+        },
+        create: {
+          email: users[i].email,
+          password: users[i].password,
+          role: users[i].role as unknown as users_role,
+          name: users[i].name,
+          phone_number: users[i].phone_number,
+          createdAt: new Date(),
+          isVerified: users[i].isVerified,
+        },
+        update: {
+          email: users[i].email,
+          password: users[i].password,
+          role: users[i].role as unknown as users_role,
+          name: users[i].name,
+          phone_number: users[i].phone_number,
+          isVerified: users[i].isVerified,
+          updatedAt: new Date(),
+        },
       });
     }
   });
@@ -45,7 +64,7 @@ const seedProductStocks = async () => {
   await prisma.$transaction(async (trx) => {
     for (const stock of productStock) {
       await trx.productStock.upsert({
-        where: { id: stock.id }, 
+        where: { id: stock.id },
         create: stock,
         update: stock,
       });
@@ -56,7 +75,7 @@ const seedProductStocks = async () => {
 const main = async () => {
   console.log('Starting seeding...');
 
-  await seedUsers();
+  await seedUser();
   console.log('Seeded Users');
 
   await seedCategories();
